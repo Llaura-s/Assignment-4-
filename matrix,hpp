@@ -1,0 +1,25 @@
+#ifndef MATRIX_HPP_
+#define MATRIX_HPP_
+#include<iostream>
+using namespace std;
+class Matrix
+{
+private:
+		int m_rows;                                               //矩阵行数 （成员名用m_是为了避免参数名与类成员相同） 
+		int m_cols;                                               //矩阵列数 
+		float p[100][100];                                         //矩阵空间 
+public:    
+	    Matrix();
+	    ~Matrix();
+	    Matrix operator*(const Matrix &A);                                          //重载* 
+		Matrix& operator=( Matrix &A);                                         //重载=赋值操作符 
+	    void InputMatrix();                                                      // 矩阵的输入 
+	    friend ostream &operator<<(ostream &output, const Matrix &A);         //重载<<          
+	    friend Matrix add(Matrix *mat);                                           //矩阵加法 
+	    
+};
+
+ostream &operator<<(ostream &output, const Matrix &A);   
+Matrix add(Matrix *mat);
+
+# endif
